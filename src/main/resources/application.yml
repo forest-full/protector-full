@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: protector-full
+  main:
+    web-application-type: none
