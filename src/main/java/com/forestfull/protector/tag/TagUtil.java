@@ -6,30 +6,31 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * <a href="https://regexr.com">https://regexr.com</a>
  */
 class TagUtil {
 
-    private static final String REGEX_START_TAG = "<\\w+(\\s|/?)*";
-
-
-    protected static List<Object> convertToListMap(Object tagObject) {
+    protected static Object convertToListMap(Object tagObject) {
         if (ObjectUtils.isEmpty(tagObject)) return null;
 
 //        List<Map<String, Object>> list = new LinkedList<>();
 
         if (tagObject instanceof String) {
-            String tagString = String.valueOf(tagObject);
-            List<Object> list = new LinkedList<>();
+            final String tagString = String.valueOf(tagObject);
+            final String findStartTag = "<";
 
+            if (!tagString.contains(findStartTag)) return tagObject;
 
+            final List<Object> list = new LinkedList<>();
 
             for (int i = 0; i < tagString.length(); i++) {
+                if (!findStartTag.equals(tagString.substring(i, i + 1))) continue;
+
 
             }
-
 
             return null;
         } else {
